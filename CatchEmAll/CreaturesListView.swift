@@ -8,19 +8,24 @@
 import SwiftUI
 
 struct CreaturesListView: View {
+    var creatures = Creatures()
     
-    var creatures: [String] = ["Pikachu", "Squirtle", "Charizard", "Snorlax"]
+   // var creatures: [String] = ["Pikachu", "Squirtle", "Charizard", "Snorlax"]
     
     var body: some View {
         NavigationStack{
-            List(creatures, id: \.self) {
-                creature in
-                Text(creature)
-                    .font(.title2)
-            }
-            .listStyle(.plain)
-            .navigationTitle("Pokémon")
+            Text("Come back and fix this") //TODO: Uncomment below
+//            List(creatures, id: \.self) {
+//                creature in
+//                Text(creature)
+//                    .font(.title2)
+//            }
+//                  .listStyle(.plain)
+//                    .navigationTitle("Pokémon")
             
+        }
+        .task {
+            await creatures.getData()
         }
     }
 }

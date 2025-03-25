@@ -11,6 +11,7 @@
 		BE3E942D2D91CF37008175E0 /* CreaturesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E94292D91CF37008175E0 /* CreaturesListView.swift */; };
 		BE3E942E2D91CF37008175E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE3E94252D91CF37008175E0 /* Preview Assets.xcassets */; };
 		BE3E942F2D91CF37008175E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE3E94272D91CF37008175E0 /* Assets.xcassets */; };
+		BE3E94322D91F522008175E0 /* Creatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE3E94312D91F522008175E0 /* Creatures.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		BE3E94282D91CF37008175E0 /* CatchEmAllApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchEmAllApp.swift; sourceTree = "<group>"; };
 		BE3E94292D91CF37008175E0 /* CreaturesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreaturesListView.swift; sourceTree = "<group>"; };
 		BE3E942A2D91CF37008175E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE3E94312D91F522008175E0 /* Creatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creatures.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				BE3E942A2D91CF37008175E0 /* Info.plist */,
 				BE3E94282D91CF37008175E0 /* CatchEmAllApp.swift */,
 				BE3E94292D91CF37008175E0 /* CreaturesListView.swift */,
+				BE3E94312D91F522008175E0 /* Creatures.swift */,
 				BE3E94272D91CF37008175E0 /* Assets.xcassets */,
 				BE3E94262D91CF37008175E0 /* Preview Content */,
 			);
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE3E94322D91F522008175E0 /* Creatures.swift in Sources */,
 				BE3E942C2D91CF37008175E0 /* CatchEmAllApp.swift in Sources */,
 				BE3E942D2D91CF37008175E0 /* CreaturesListView.swift in Sources */,
 			);
