@@ -8,25 +8,66 @@
 import SwiftUI
 
 struct CreaturesListView: View {
-    var creatures = Creatures()
-    
-   // var creatures: [String] = ["Pikachu", "Squirtle", "Charizard", "Snorlax"]
+    @State var creatures = Creatures()
+    @State private var searchText = ""
     
     var body: some View {
         NavigationStack{
-            Text("Come back and fix this") //TODO: Uncomment below
-//            List(creatures, id: \.self) {
-//                creature in
-//                Text(creature)
-//                    .font(.title2)
-//            }
-//                  .listStyle(.plain)
-//                    .navigationTitle("Pokémon")
+            ZStack {
+                List(searchResults) {
+                    creature in
+                    LazyVStack {
+                        
+                        NavigationLink {
+                            DetailView(creature: creature)
+                        } label: {
+                            Text("\(returnIndex(of: creature)). \(creature.name.capitalized)")
+                        }
+                    }
+                    .task{
+                        await creatures.loadNextIfNeeded(creature: creature)
+                    }
+                }
+                .listStyle(.plain)
+                .navigationTitle("Pokémon")
+                .toolbar {
+                    ToolbarItem(placement: .bottomBar) {
+                        Button("Load All"){
+                            Task{
+                               await creatures.loadAll()
+                            }
+                        }
+                    }
+                    ToolbarItem(placement: .status) {
+                        Text("\(creatures.creaturesArray.count) of \(creatures.count) creatures")
+                    }
+                }
+                .searchable(text: $searchText)
+                
+                if creatures.isLoading {
+                    ProgressView()
+                        .tint(.red)
+                        .scaleEffect(4)
+                }
+            }
             
         }
         .task {
             await creatures.getData()
         }
+    }
+    
+    var searchResults: [Creature] {
+        if searchText.isEmpty {
+            return creatures.creaturesArray
+        } else { // We have some search text
+            return creatures.creaturesArray.filter {$0.name.capitalized.contains(searchText)}
+        }
+    }
+    
+    func returnIndex(of creature: Creature) -> Int {
+        guard let index = creatures.creaturesArray.firstIndex(where: {$0.name == creature.name}) else {return 0}
+        return index + 1
     }
 }
 
